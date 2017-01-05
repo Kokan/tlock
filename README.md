@@ -1,6 +1,8 @@
 tlock
 ======
 
+[![Build Status](https://travis-ci.org/Kokan/tlock.svg?branch=master)](https://travis-ci.org/Kokan/tlock)
+
 To compile you need:
 * cmake
 * *modern* C compiler

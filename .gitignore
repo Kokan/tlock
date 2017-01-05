@@ -1,0 +1,7 @@
+*.a
+*.o
+CMakeFiles/
+binarix
+CMakeCache.txt
+cmake_install.cmake
+Makefile

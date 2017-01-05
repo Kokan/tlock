@@ -1,0 +1,17 @@
+
+addons:
+  apt:
+    packages:
+    - cmake
+    - make
+    - ncurses-base
+
+compiler:
+  - gcc
+  - clang
+
+script:
+  - cmake .
+  - make all
+
+
