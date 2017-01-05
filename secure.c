@@ -26,13 +26,17 @@
 #include <stddef.h>
 #include <fcntl.h>
 
+#define UNUSED(x) (void)(x)
+
 int vtfh;
 
 void release_vt(int signo) {
+	UNUSED(signo);
 	ioctl(vtfh, VT_RELDISP, 0);
 }
 
 void acquire_vt(int signo) {
+	UNUSED(signo);
 	/* This call is not currently required under Linux, but it won't hurt, *
 	 * either...                                                           *
          * Thanks to Michael K. Johnson.                                       */

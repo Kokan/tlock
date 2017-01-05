@@ -53,7 +53,7 @@ char userpass[127];
 void printfield();
 void fillfield();
 void changefield();
-void printhelp(int);
+void printhelp();
 void getpassword();
 void comparepasswords();
 void push_snake(int, int);
@@ -80,7 +80,7 @@ int main()
 	setsecurity();
 
 	initscr();
-	srand(time(0));
+	srandom(time(0));
 
 	getmaxyx(stdscr, y, x);
 	curs_set(0);
@@ -114,6 +114,7 @@ int main()
 void printfield()
 {
 	int tmp, i;
+	char map[3] = {'1', '0', ' '};
 
 	erase();
 
@@ -121,10 +122,7 @@ void printfield()
 	{
 		for(tmp=0; tmp < x; tmp++)
 		{
-			if(field[tmp][i] == 2)
-				printw(" ");
-			else
-				printw("%d", field[tmp][i]);
+			printw("%c",map[field[tmp][i]]);
 		}
 	}
 
@@ -149,14 +147,14 @@ void changefield()
 
         for(i=0; i < x; i++)
         {
-			if(rand()%25 < 20)
+			if(random()%25 < 20)
 				continue;
 
-			if(rand()%40 < 10)
+			if(random()%40 < 30)
 			{
 				push_snake(2, i);
 			} else {
-				push_snake(rand()%2, i);
+				push_snake(random()%2, i);
 			}
         }
 	
@@ -164,7 +162,7 @@ void changefield()
 	{
 		switch(ch)
 		{
-			case '?': printhelp(0);
+			case '?': printhelp();
 			          break;
 			default:  bbox = 1;
 			          break;
@@ -174,7 +172,7 @@ void changefield()
 	printfield();
 }
 
-void printhelp(int signr)
+void printhelp()
 {
 	refresh();
 	win = dialog(DIALOG_HELP_HEIGHT, DIALOG_HELP_WIDTH,\
