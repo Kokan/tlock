@@ -1,3 +1,4 @@
+language: c
 
 addons:
   apt:
@@ -9,6 +10,8 @@ addons:
 compiler:
   - gcc
   - clang
+
+matrix:
 
 script:
   - cmake .
